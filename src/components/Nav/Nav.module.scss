@@ -1,0 +1,36 @@
+@import '@styles/variables';
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: $breakpoint--md) {
+    padding: 75px;
+  }
+  @media (max-width: $breakpoint--sm) {
+    padding: 30px;
+  }
+
+  &__image {
+    max-width: 200px;
+    height: auto;
+    transition: all 0.2s linear;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    @media (max-width: $breakpoint--md) {
+      max-width: 180px;
+    }
+    @media (max-width: $breakpoint--sm) {
+      max-width: 110px;
+    }
+  }
+}
