@@ -21,7 +21,7 @@ const SideDrawer = ({ click, show }: SideDrawerToggleType) => {
     >
       <div onClick={click} className={styles.drawer__header}>
         <LinkDisplay link="/">
-          <img className={styles.drawer__image} alt="logo" src="/images/JD-Develop-white.png" />
+          <img className={styles.drawer__image} alt="logo" src="/images/JD-Develop.png" />
         </LinkDisplay>
       </div>
       <div className={styles.drawer__item}>

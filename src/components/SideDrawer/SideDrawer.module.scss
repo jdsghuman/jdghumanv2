@@ -1,9 +1,11 @@
+@import '@styles/variables';
+
 .drawer {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
-  background: #ffffff;
+  background: $primary;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -26,24 +28,23 @@
     z-index: 140;
   }
   &__image {
-    margin-top: 10px;
-    width: 200px;
+    margin: 30px;
+    width: 125px;
   }
   &__item {
     margin: 0.5rem 0;
     margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #333333;
+    border-bottom: 2px solid #333333;
     a {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 300;
+      font-family: 'PT Mono', monospace;
       color: #333333;
       text-decoration: none;
       font-size: 1.3rem;
       text-transform: uppercase;
       &:hover,
       &:active {
-        color: #888888;
+        opacity: 0.8;
       }
     }
   }
@@ -54,11 +55,11 @@
     transform: translateX(100%);
   }
   20% {
-    opacity: 1;
+    opacity: 0.5;
   }
   100% {
     transform: translateX(0%);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
@@ -70,10 +71,10 @@
     transform: translateX(100%);
   }
   75% {
-    opacity: 1;
+    opacity: 0.5;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
 

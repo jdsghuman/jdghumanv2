@@ -1,7 +1,12 @@
+@import '@styles/variables';
+
 .toggle {
   background: transparent;
   border: none;
   outline: none;
+  &__mobile--disable {
+    animation: removeCloseButton 0.3s ease-in 0.1s forwards;
+  }
 }
 
 #nav__icon {
@@ -75,4 +80,13 @@
   top: 18px;
   width: 0%;
   left: 50%;
+}
+
+@keyframes removeCloseButton {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

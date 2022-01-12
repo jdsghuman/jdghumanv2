@@ -9,7 +9,12 @@ interface DrawerToggleType {
 }
 
 const DrawerToggleButton = ({ click, show }: DrawerToggleType) => (
-  <button className={styles.toggle} onClick={click}>
+  <button
+    className={cx('toggle', {
+      'toggle__mobile--disable': show,
+    })}
+    onClick={click}
+  >
     <div id={styles.nav__icon} className={cx({ open: show })} onClick={click}>
       <span></span>
       <span></span>
