@@ -1,5 +1,5 @@
 import styles from './About.module.scss'
-
+import { AiFillGithub } from 'react-icons/ai'
 const About = () => {
   return (
     <div className={styles.section}>
@@ -14,6 +14,7 @@ const About = () => {
           When I am not building web applications or coding, I can be found hanging out with my
           family, building something in the garage, or drinking coffee…. I’m always drinking coffee!
         </p>
+        <AiFillGithub />
       </div>
     </div>
   )
