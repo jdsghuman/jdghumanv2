@@ -12,15 +12,19 @@ const Home: NextPage = () => {
     <section className={styles.showcase}>
       <video src="dev.mp4" muted loop autoPlay />
       <div className={styles.overlay}></div>
-      <div className={styles.text}>
-        <h2>JD Ghuman</h2>
-        <h3>
-          I'm a software engineer based out of Houston, TX and build web applications for desktop
-          and mobile.
-        </h3>
-        <Button type="button" onClick={viewProjects} className={styles.button__main}>
-          Projects
-        </Button>
+      <div className={styles.section}>
+        <div className={styles.section__container}>
+          <div className={styles.text}>
+            <h2>JD Ghuman</h2>
+            <h3>
+              I'm a software engineer based out of Houston, TX and build web applications for
+              desktop and mobile.
+            </h3>
+            <Button type="button" onClick={viewProjects} className={styles.button__main}>
+              Projects
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   )
