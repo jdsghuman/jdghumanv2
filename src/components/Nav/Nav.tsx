@@ -17,14 +17,14 @@ const Nav = ({ sideDrawerOpen, drawerToggleClickHandler }: Props) => {
   return (
     <header>
       <nav className={styles.nav}>
-        <div>
+        <div className={styles.nav__container}>
           <LinkDisplay link="/">
             <a onClick={goToHomePage}>
               <img className={styles.nav__image} src="/images/JD-Develop-white.png" alt="Logo" />
             </a>
           </LinkDisplay>
+          <DrawerToggleButton show={sideDrawerOpen} click={drawerToggleClickHandler} />
         </div>
-        <DrawerToggleButton show={sideDrawerOpen} click={drawerToggleClickHandler} />
       </nav>
     </header>
   )

@@ -6,9 +6,6 @@
   width: 100%;
   min-height: 100vh;
   padding: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: #112;
   color: #fff;
   z-index: 2;
@@ -44,56 +41,6 @@
   mix-blend-mode: overlay;
 }
 
-.text {
-  position: relative;
-  z-index: 10;
-  font-family: teko;
-
-  @media (max-width: $breakpoint--sm) {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-    backdrop-filter: blur(6.5px);
-    -webkit-backdrop-filter: blur(6.5px);
-    border-radius: 3px;
-    padding: 20px;
-  }
-}
-
-.text h2 {
-  margin: 0;
-  font-size: 5rem;
-  font-weight: 400;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  @media (max-width: $breakpoint--md) {
-    font-size: 4.5rem;
-  }
-  @media (max-width: $breakpoint--sm) {
-    font-size: 4rem;
-  }
-}
-
-.text p {
-  font-size: 1.8rem;
-  margin: 0;
-  margin-bottom: -10px;
-}
-
-.text h3 {
-  margin: 20px 0;
-  font-size: 2rem;
-  font-weight: 300;
-  font-family: teko;
-  max-width: 700px;
-  letter-spacing: 1.1px;
-  @media (max-width: $breakpoint--md) {
-    font-size: 1.8rem;
-  }
-  @media (max-width: $breakpoint--sm) {
-    line-height: 1.2;
-  }
-}
-
 .button__main {
   margin-top: 5px;
   padding: 8px 24px;
@@ -105,12 +52,115 @@
   letter-spacing: 1.1px;
   height: 40px;
   color: #fff;
-  border: 1px solid #fff;
+  background: $primary;
+  border: 1px solid $primary;
   border-radius: 2px;
-  background: none;
   transition: all 0.2s ease-in;
   cursor: pointer;
   &:hover {
-    background: rgba(44, 186, 219, 0.2);
+    background: none;
+  }
+}
+
+.section {
+  height: 800px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  @media (max-width: $breakpoint--md) {
+    height: 700px;
+  }
+  @media (max-height: $breakpoint--md) and (min-width: 1000px) {
+    height: 600px;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(5%, 1fr) repeat(6, minmax(100px, 400px)) minmax(5%, 1fr);
+    overflow: hidden;
+    position: relative;
+    @media (max-width: $breakpoint--sm) {
+      grid-template-columns: minmax(5%, 1fr) repeat(3, minmax(100px, 400px)) minmax(5%, 1fr);
+    }
+    @media (max-width: 340px) {
+      grid-template-columns: minmax(1%, 1fr) repeat(2, minmax(75px, 400px)) minmax(1%, 1fr);
+    }
+    .text {
+      position: relative;
+      grid-column: 1/-2;
+      z-index: 10;
+      font-family: teko;
+      opacity: 0;
+      animation: fadeInText 0.2s ease-in 0.2s forwards;
+      @media (max-width: $breakpoint--md) {
+        grid-column: 1/6;
+      }
+      @media (max-width: $breakpoint--sm) {
+        grid-column: 1/-2;
+      }
+      @media (max-width: 400px) {
+        grid-column: 1/-2;
+      }
+
+      @media (max-width: $breakpoint--sm) {
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+        backdrop-filter: blur(6.5px);
+        -webkit-backdrop-filter: blur(6.5px);
+        border-radius: 3px;
+        padding: 20px;
+      }
+    }
+
+    .text h2 {
+      margin: 0;
+      font-size: 7rem;
+      font-weight: 400;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      @media (max-width: $breakpoint--md) {
+        font-size: 6rem;
+      }
+      @media (max-width: $breakpoint--sm) {
+        font-size: 4rem;
+      }
+    }
+
+    .text p {
+      font-size: 1.8rem;
+      margin: 0;
+      margin-bottom: -10px;
+    }
+
+    .text h3 {
+      margin: 20px 0;
+      font-size: 2rem;
+      font-weight: 300;
+      font-family: teko;
+      max-width: 700px;
+      letter-spacing: 1.1px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 3px;
+      @media (max-width: $breakpoint--sm) {
+        background: none;
+      }
+      @media (max-width: $breakpoint--md) {
+        font-size: 1.8rem;
+      }
+      @media (max-width: $breakpoint--sm) {
+        line-height: 1.2;
+      }
+    }
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    transform: opacity(0%);
+  }
+  100% {
+    opacity: 1;
   }
 }
