@@ -2,7 +2,6 @@
 
 .showcase {
   position: absolute;
-  // display: flex;
   right: 0;
   width: 100%;
   min-height: 100vh;
@@ -70,6 +69,12 @@
   border: 0;
   display: flex;
   align-items: center;
+  @media (max-width: $breakpoint--md) {
+    height: 700px;
+  }
+  @media (max-height: $breakpoint--md) and (min-width: 1000px) {
+    height: 600px;
+  }
   &__container {
     display: grid;
     grid-template-columns: minmax(5%, 1fr) repeat(6, minmax(100px, 400px)) minmax(5%, 1fr);
@@ -138,6 +143,9 @@
       background: rgba(0, 0, 0, 0.3);
       padding: 10px;
       border-radius: 3px;
+      @media (max-width: $breakpoint--sm) {
+        background: none;
+      }
       @media (max-width: $breakpoint--md) {
         font-size: 1.8rem;
       }
