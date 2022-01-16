@@ -17,7 +17,7 @@ const Home: NextPage = () => {
           <div className={styles.text}>
             <h2>JD Ghuman</h2>
             <h3>
-              I'm a software engineer based out of Houston, TX and build web applications for
+              I am a software engineer based out of Houston, TX and build web applications for
               desktop and mobile.
             </h3>
             <Button type="button" onClick={viewProjects} className={styles.button__main}>
