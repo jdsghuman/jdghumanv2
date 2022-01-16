@@ -1,14 +1,19 @@
 @import '@styles/variables';
 
 .section {
+  padding-top: 100px;
   background: $secondary;
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: $breakpoint--md) {
+    padding-top: 140px;
+  }
   &__container {
-    margin-top: 40px;
+    // margin-top: 40px;
+    margin-bottom: 40px;
     max-width: 700px;
     color: #fff;
     font-family: 'PT Mono';
@@ -22,9 +27,6 @@
     padding: 20px;
     @media (max-width: 740px) {
       max-width: 90%;
-    }
-    @media (max-width: 376px) {
-      margin-top: 200px;
     }
     .name {
       margin: 0;
