@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   }
   return (
     <section className={styles.showcase}>
-      <video src="dev.mp4" muted loop autoPlay />
+      <video src="dev.mp4" muted loop autoPlay playsInline />
       <div className={styles.overlay}></div>
       <div className={styles.section}>
         <div className={styles.section__container}>
