@@ -4,10 +4,11 @@ import Head from 'next/head'
 import Layout from '@components/Layout'
 import Script from 'next/script'
 import Router from 'next/router'
+import { defaultMetaTags } from '@components/Util/Constants'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <>
+    <Layout metaTags={defaultMetaTags}>
       <Script
         strategy="lazyOnload"
         id="ga-tag"
@@ -24,7 +25,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         });
     `}
       </Script>
-
       <Head>
         {/*Global meta tags*/}
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -33,10 +33,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+      <Component {...pageProps} />
+    </Layout>
   )
 }
 

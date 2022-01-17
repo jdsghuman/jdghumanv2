@@ -3,7 +3,6 @@
 .toggle {
   background: transparent;
   border: none;
-  outline: none;
   &__mobile--disable {
     animation: removeCloseButton 0.3s ease-in 0.1s forwards;
   }
