@@ -10,7 +10,7 @@ const About = () => {
     description: `Software Engineer | Front End Engingeer based out of Houston, TX`,
     image: 'https://www.jdghuman.com/images/JD-Develop.png',
     robots: `${RobotsContent.follow},${RobotsContent.index}`,
-    title: `jdGhuman`,
+    title: `jdGhuman | About`,
     type: PageType.website,
   }
 
