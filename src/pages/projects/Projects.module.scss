@@ -41,6 +41,11 @@
           }
         }
       }
+      &__image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
     }
     .name {
       font-family: 'PT Mono';
@@ -56,7 +61,7 @@
     }
     .detail {
       color: #fff;
-      margin-top: 20px;
+      margin-top: 30px;
       line-height: 1.4;
       border-top: 1px solid #fff;
       padding-top: 8px;

@@ -1,0 +1,17 @@
+overwrite: true
+schema:
+  - https://jdghuman.prismic.io/graphql:
+      method: GET
+      headers:
+        Authorization: 'Token MC5ZZUl2WFJFQUFDZ0EweFh6.MA9pKu-_vTfvv71N77-977-977-9c--_vTNs77-977-9Sm_vv73vv71177-9MWTvv73vv73vv73vv71A77-9XA'
+        Prismic-Ref: 'YfPcUREAAC8AIq8H'
+generates:
+  # Schema
+  ./schema.graphql:
+    plugins:
+      - schema-ast
+  src/types/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
