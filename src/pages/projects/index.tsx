@@ -1,16 +1,13 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import { client } from '../../gql/apollo-client'
 import gql from 'graphql-tag'
 import { GraphQLError } from 'graphql'
-import blImage from '../../../public/images/bobbieleelicious.jpg'
 import styles from './Projects.module.scss'
-import { AiFillGithub } from 'react-icons/ai'
-import { BiLinkExternal } from 'react-icons/bi'
+
 import Meta from '@components/Meta'
 import { MetaTags, PageType, RobotsContent } from '@components/PropTypes/Tags'
 import { ProjectConnectionConnection, Query } from '../../../src/types/generated/graphql'
 import useHasMounted from '@components/hooks/useHasMounted'
+import Project from '@components/Project'
 
 interface HomeProps {
   data?: ProjectConnectionConnection
@@ -44,35 +41,7 @@ const Projects = ({ data, errors }: HomeProps) => {
       <div className={styles.section}>
         <div className={styles.section__container}>
           {data?.edges?.map((project) => (
-            <div className={styles.project} key={project?.node._meta.id}>
-              <h2 className={styles.name}>{project?.node.title[0].text}</h2>
-              <div className={styles.project__image}>
-                <Image
-                  src={project?.node.image.url}
-                  alt={project?.node?.image?.alt}
-                  width={project?.node.image.dimensions.width}
-                  height={project?.node.image.dimensions.height}
-                  blurDataURL="blur"
-                />
-              </div>
-              <p className={styles.detail}>{project?.node.description[0].text}</p>
-              <div className={styles.link__container}>
-                {project?.node?.demourl && (
-                  <Link href={project.node.demourl.url}>
-                    <a target="_blank">
-                      <BiLinkExternal className={styles.icons} />
-                    </a>
-                  </Link>
-                )}
-                {project?.node?.githuburl && (
-                  <Link href={project?.node.githuburl?.url}>
-                    <a target="_blank">
-                      <AiFillGithub className={styles.icons} />
-                    </a>
-                  </Link>
-                )}
-              </div>
-            </div>
+            <Project project={project} />
           ))}
         </div>
       </div>
@@ -114,15 +83,10 @@ const ProjectPageQuery = gql`
   }
 `
 
-interface ResultProps {
-  allProjects: Query['allProjects']
-}
-
 export async function getStaticProps() {
   const { data, errors = null } = await client.query<{ allProjects: Query['allProjects'] }>({
     query: ProjectPageQuery,
   })
-  console.log('data in getStaticProps', data)
 
   return {
     props: {
