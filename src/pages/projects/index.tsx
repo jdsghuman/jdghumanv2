@@ -1,7 +1,7 @@
 import { client } from '../../gql/apollo-client'
 import gql from 'graphql-tag'
 import { GraphQLError } from 'graphql'
-import styles from './Projects.module.scss'
+import styles from '../../styles/Projects.module.scss'
 
 import Meta from '@components/Meta'
 import { MetaTags, PageType, RobotsContent } from '@components/PropTypes/Tags'

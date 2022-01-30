@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from './About.module.scss'
+import styles from '../../styles/About.module.scss'
 import { AiFillGithub, AiOutlineMail, AiFillLinkedin } from 'react-icons/ai'
 import Meta from '@components/Meta'
 import { MetaTags, PageType, RobotsContent } from '@components/PropTypes/Tags'
