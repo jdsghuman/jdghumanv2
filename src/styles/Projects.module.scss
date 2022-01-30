@@ -1,0 +1,16 @@
+@import '@styles/variables';
+
+.section {
+  background: $secondary;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin: 100px auto;
+    max-width: 800px;
+  }
+}

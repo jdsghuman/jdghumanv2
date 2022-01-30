@@ -1,0 +1,411 @@
+type Author implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+  bio: Json
+  fullname: Json
+  profile_picture: Json
+  social_media: [AuthorSocial_media!]
+}
+
+"""A connection to a list of items."""
+type AuthorConnectionConnection {
+  """A list of edges."""
+  edges: [AuthorConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type AuthorConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Author!
+}
+
+type AuthorSocial_media {
+  link: _Linkable
+  name: String
+}
+
+type Blog_post implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+  author: _Linkable
+  category: _Linkable
+  description: String
+  featured: Boolean
+  release_date: Date
+  tags: [Blog_postTags!]
+  text: Json
+  title: Json
+}
+
+"""A connection to a list of items."""
+type Blog_postConnectionConnection {
+  """A list of edges."""
+  edges: [Blog_postConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type Blog_postConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Blog_post!
+}
+
+type Blog_postTags {
+  tag: String
+}
+
+type Category implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+  category_description: Json
+  category_name: Json
+  hero_image: Json
+}
+
+"""A connection to a list of items."""
+type CategoryConnectionConnection {
+  """A list of edges."""
+  edges: [CategoryConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type CategoryConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Category!
+}
+
+"""Date"""
+scalar Date
+
+"""DateTime"""
+scalar DateTime
+
+"""Raw JSON value"""
+scalar Json
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values. Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Meta {
+  """Alternate languages the document."""
+  alternateLanguages: [RelatedDocument!]!
+
+  """The first publication date of the document."""
+  firstPublicationDate: DateTime
+
+  """The id of the document."""
+  id: String!
+
+  """The language of the document."""
+  lang: String!
+
+  """The last publication date of the document."""
+  lastPublicationDate: DateTime
+
+  """The tags of the document."""
+  tags: [String!]!
+
+  """The type of the document."""
+  type: String!
+
+  """The uid of the document."""
+  uid: String
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+type Project implements _Document & _Linkable {
+  _linkType: String
+  _meta: Meta!
+  demourl: _Linkable
+  description: Json
+  githuburl: _Linkable
+  image: Json
+  release_date: Date
+  tags: [ProjectTags!]
+  title: Json
+}
+
+"""A connection to a list of items."""
+type ProjectConnectionConnection {
+  """A list of edges."""
+  edges: [ProjectConnectionEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type ProjectConnectionEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: Project!
+}
+
+type ProjectTags {
+  tag: String
+}
+
+type Query {
+  _allDocuments(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortDocumentsBy, tags: [String!], tags_in: [String!], type: String, type_in: [String!]): _DocumentConnection!
+  allAuthors(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortAuthory, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereAuthor): AuthorConnectionConnection!
+  allBlog_posts(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortBlog_posty, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereBlog_post): Blog_postConnectionConnection!
+  allCategorys(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortCategoryy, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereCategory): CategoryConnectionConnection!
+  allProjects(after: String, before: String, first: Int, firstPublicationDate: DateTime, firstPublicationDate_after: DateTime, firstPublicationDate_before: DateTime, fulltext: String, id: String, id_in: [String!], lang: String, last: Int, lastPublicationDate: DateTime, lastPublicationDate_after: DateTime, lastPublicationDate_before: DateTime, similar: similar, sortBy: SortProjecty, tags: [String!], tags_in: [String!], uid: String, uid_in: [String!], where: WhereProject): ProjectConnectionConnection!
+  blog_post(lang: String!, uid: String!): Blog_post
+  category(lang: String!, uid: String!): Category
+  project(lang: String!, uid: String!): Project
+}
+
+type RelatedDocument {
+  """The id of the document."""
+  id: String!
+
+  """The language of the document."""
+  lang: String!
+
+  """The type of the document."""
+  type: String!
+
+  """The uid of the document."""
+  uid: String
+}
+
+enum SortAuthory {
+  bio_ASC
+  bio_DESC
+  fullname_ASC
+  fullname_DESC
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+}
+
+enum SortBlog_posty {
+  description_ASC
+  description_DESC
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+  release_date_ASC
+  release_date_DESC
+  text_ASC
+  text_DESC
+  title_ASC
+  title_DESC
+}
+
+enum SortCategoryy {
+  category_description_ASC
+  category_description_DESC
+  category_name_ASC
+  category_name_DESC
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+}
+
+enum SortDocumentsBy {
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+}
+
+enum SortProjecty {
+  description_ASC
+  description_DESC
+  meta_firstPublicationDate_ASC
+  meta_firstPublicationDate_DESC
+  meta_lastPublicationDate_ASC
+  meta_lastPublicationDate_DESC
+  release_date_ASC
+  release_date_DESC
+  title_ASC
+  title_DESC
+}
+
+input WhereAuthor {
+  """bio"""
+  bio_fulltext: String
+
+  """fullname"""
+  fullname_fulltext: String
+  social_media: WhereAuthorSocial_media
+}
+
+input WhereAuthorSocial_media {
+  """link"""
+  link: String
+  name: String
+  name_fulltext: String
+}
+
+input WhereBlog_post {
+  """author"""
+  author: String
+
+  """category"""
+  category: String
+  description: String
+  description_fulltext: String
+  featured: Boolean
+
+  """release_date"""
+  release_date: Date
+
+  """release_date"""
+  release_date_after: Date
+
+  """release_date"""
+  release_date_before: Date
+  tags: WhereBlog_postTags
+
+  """text"""
+  text_fulltext: String
+
+  """title"""
+  title_fulltext: String
+}
+
+input WhereBlog_postTags {
+  tag: String
+  tag_fulltext: String
+}
+
+input WhereCategory {
+  """category_description"""
+  category_description_fulltext: String
+
+  """category_name"""
+  category_name_fulltext: String
+}
+
+input WhereProject {
+  """demourl"""
+  demourl: String
+
+  """description"""
+  description_fulltext: String
+
+  """githuburl"""
+  githuburl: String
+
+  """release_date"""
+  release_date: Date
+
+  """release_date"""
+  release_date_after: Date
+
+  """release_date"""
+  release_date_before: Date
+  tags: WhereProjectTags
+
+  """title"""
+  title_fulltext: String
+}
+
+input WhereProjectTags {
+  tag: String
+  tag_fulltext: String
+}
+
+"""A prismic document"""
+interface _Document {
+  _meta: Meta!
+}
+
+"""A connection to a list of items."""
+type _DocumentConnection {
+  """A list of edges."""
+  edges: [_DocumentEdge]
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+  totalCount: Long!
+}
+
+"""An edge in a connection."""
+type _DocumentEdge {
+  """A cursor for use in pagination."""
+  cursor: String!
+
+  """The item at the end of the edge."""
+  node: _Document!
+}
+
+"""An external link"""
+type _ExternalLink implements _Linkable {
+  _linkType: String
+  target: String
+  url: String!
+}
+
+"""A linked file"""
+type _FileLink implements _Linkable {
+  _linkType: String
+  name: String!
+  size: Long!
+  url: String!
+}
+
+"""A linked image"""
+type _ImageLink implements _Linkable {
+  _linkType: String
+  height: Int!
+  name: String!
+  size: Long!
+  url: String!
+  width: Int!
+}
+
+"""A prismic link"""
+interface _Linkable {
+  _linkType: String
+}
+
+input similar {
+  documentId: String!
+  max: Int!
+}
