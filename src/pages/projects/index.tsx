@@ -41,7 +41,7 @@ const Projects = ({ data, errors }: HomeProps) => {
       <div className={styles.section}>
         <div className={styles.section__container}>
           {data?.edges?.map((project) => (
-            <Project project={project} />
+            <Project key={project?.node._meta.id} project={project} />
           ))}
         </div>
       </div>
