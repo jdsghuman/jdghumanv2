@@ -22,8 +22,8 @@ const Project = ({ project }: any) => {
       </div>
       <p className={styles.detail}>{project?.node.description[0].text}</p>
       <div className={styles.tag}>
-        {project?.node?.tags.map((tag: { tag: string }) => (
-          <Tag tag={tag.tag} />
+        {project?.node?.tags.map((tag: { tag: string }, i) => (
+          <Tag key={i} tag={tag.tag} />
         ))}
       </div>
       <div className={styles.link__container}>
