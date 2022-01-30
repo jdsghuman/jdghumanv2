@@ -36,6 +36,10 @@
     padding-left: 10px;
     padding-right: 10px;
     font-family: 'PT Mono', monospace;
+    @media (max-width: $breakpoint--sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   .link__container {
     display: flex;
