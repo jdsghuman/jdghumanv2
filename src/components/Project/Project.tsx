@@ -7,7 +7,6 @@ import styles from './Project.module.scss'
 import Tag from '@components/Tag'
 
 const Project = ({ project }: any) => {
-  console.log('project', project)
   return (
     <div className={styles.project} key={project?.node._meta.id}>
       <h2 className={styles.name}>{project?.node.title[0].text}</h2>
