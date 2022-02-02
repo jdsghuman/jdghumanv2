@@ -20,7 +20,11 @@ const Nav = ({ sideDrawerOpen, drawerToggleClickHandler }: Props) => {
         <div className={styles.nav__container}>
           <LinkDisplay link="/">
             <a onClick={goToHomePage}>
-              <img className={styles.nav__image} src="/images/JD-Develop-white.png" alt="Logo" />
+              <img
+                className={styles.nav__image}
+                src="/images/JD-Develop-white.png"
+                alt="JD Develop logo"
+              />
             </a>
           </LinkDisplay>
           <DrawerToggleButton show={sideDrawerOpen} click={drawerToggleClickHandler} />

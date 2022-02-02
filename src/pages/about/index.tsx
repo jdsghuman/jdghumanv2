@@ -6,7 +6,7 @@ import { MetaTags, PageType, RobotsContent } from '@components/PropTypes/Tags'
 
 const About = () => {
   const postMetaTags: MetaTags = {
-    canonical: 'https://www.jdghuman.com',
+    canonical: 'https://www.jdghuman.com/about',
     description: `Software Engineer | Front End Engingeer based out of Houston, TX`,
     image: 'https://www.jdghuman.com/images/JD-Develop.png',
     robots: `${RobotsContent.follow},${RobotsContent.index}`,
@@ -19,7 +19,7 @@ const About = () => {
       <Meta tags={postMetaTags} />
       <div className={styles.section}>
         <div className={styles.section__container}>
-          <h2 className={styles.name}>About me</h2>
+          <h1 className={styles.name}>About me</h1>
           <p className={styles.detail}>
             I am a Software Engineer who loves to code and build things, located in Houston, TX. I
             enjoy turning concepts and designs into front end UI and solving complex problems with

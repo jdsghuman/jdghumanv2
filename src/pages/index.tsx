@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         <div className={styles.section}>
           <div className={styles.section__container}>
             <div className={styles.text}>
-              <h2>JD Ghuman</h2>
+              <h1>JD Ghuman</h1>
               <h3>
                 I am a software engineer based out of Houston, TX and build web applications for
                 desktop and mobile.

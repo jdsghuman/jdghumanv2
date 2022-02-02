@@ -17,7 +17,7 @@ interface HomeProps {
 const Projects = ({ data, errors }: HomeProps) => {
   const hasMounted = useHasMounted()
   const postMetaTags: MetaTags = {
-    canonical: 'https://www.jdghuman.com',
+    canonical: 'https://www.jdghuman.com/projects',
     description: `Software Engineer | Front End Engingeer based out of Houston, TX`,
     image: 'https://www.jdghuman.com/images/JD-Develop.png',
     robots: `${RobotsContent.follow},${RobotsContent.index}`,
